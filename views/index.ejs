@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+    </style>
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>BLOGS</title>
+</head>
+
+<body>
+    <%- include('./partials/header.ejs') %>
+    <% if(locals.blog.length!==0){ %>
+        <% for(let i=blog.length-1;i>=0;i--){ %>
+            <div class="section">
+                <h2>
+                    <%= blog[i].title %>
+                </h2>
+                <div class="option">
+                    <form action="/view" method="get">
+                    <input type="hidden" name="index" value=<%= i.toString() %>>
+                    <input type="submit" value="View">
+                </form>
+                <form action="/edit" method="get">
+                    <input type="hidden" name="index" value=<%= i.toString()%>>
+                    <input type="submit"  value="Edit">
+                </form>
+                <form action="/" method="post">
+                    <input type="hidden" name="index" value=<%= i.toString() %>>
+                    <input type="submit" value="Delete">
+                </form>
+                </div>
+            </div>
+        <% } %>
+    <% }else{ %>
+        <p class="welcome"><span>Welcome!</span><br/>There is no blogs posted, please write one!</p>
+    <% } %>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

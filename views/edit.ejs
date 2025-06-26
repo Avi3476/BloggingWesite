@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>Editing:<%= blog[index].title %></title>
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+    <div class="editor">
+        <form action="/edit" method="post">
+            <label for="title">Title</label><br/>
+            <input class="title" type="text" name="title" required value=<%=blog[index].title %>> <br />
+            <label for="content">Content</label><br/>
+            <textarea class="content" name="content" rows="13" required><%= blog[index].content %></textarea><br />
+            <input type="hidden" name="index" value=<%=index%>>
+            <input class="update" type="submit" value="Update">
+        </form>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
