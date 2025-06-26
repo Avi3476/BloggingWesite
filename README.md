@@ -1,5 +1,5 @@
 # BloggingWesite
-#Write View Edit Blogs For the Current session
+#Write View Edit Blogs For the Current session\n
 #RDBMS(for storing the written blogs) comming soon..
 #To view the website download the repository
 #-Go to CLI
